@@ -8,12 +8,13 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 const app = express();
 const PORT = process.env.PORT || 3000 ;
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  credentials: true, // Allow cookies
+};
 // Middleware
 app.use(express.json()); 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
-})); 
+app.use(cors(corsOptions)); 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(cookieParser())
 app.use(session({

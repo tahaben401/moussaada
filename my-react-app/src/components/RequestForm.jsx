@@ -120,7 +120,7 @@ export default function RequestForm() {
             Nouvelle demande
           </button>
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
           >
             Retour à l'accueil
@@ -299,7 +299,7 @@ export default function RequestForm() {
           <div className="flex justify-end space-x-3 mt-6">
             <button
               type="button"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/home')}
               disabled={isSubmitting}
               className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors disabled:opacity-50"
             >

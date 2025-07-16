@@ -16,7 +16,7 @@ userRoute.post('/login', async (req, res) => {
    
     const { data: user, error } = await supabase
       .from('users')
-      .select('id, email, fullname, password')
+      .select('id, email, fullname, password,role')
       .eq('email', email)
       .single();
 
@@ -31,11 +31,19 @@ userRoute.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
     delete user.password;
-    req.session.destroy;
-    req.session.user={id:user.id,email:user.email}
-    res.status(200).json({
-      message: 'Login successful',
-      user,
+    
+    req.session.regenerate((err) => {
+      if (err) throw err;
+      
+      req.session.user = {
+        id: user.id,
+        email: user.email
+      };
+      
+      res.status(200).json({
+        message: 'Login successful',
+        user: user
+      });
     });
 
   } catch (err) {
