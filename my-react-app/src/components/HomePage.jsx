@@ -14,7 +14,7 @@ export default function HomePage() {
       </header>
 
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-8 w-full max-w-4xl">
       
         {/* <Link 
           to="/login" 
